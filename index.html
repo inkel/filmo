@@ -71,7 +71,9 @@
   <script>
     var links = document.getElementsByTagName("section");
     var nexts = function() {
-      window.scrollBy(0, window.innerHeight);
+      var next = this.nextElementSibling;
+      if(!next || next.nodeName.toUpperCase() != "SECTION") return;
+      window.scrollTo(0, next.offsetTop);
     }
 
     for (var i = 0, il = links.length; i < il; i++) {
